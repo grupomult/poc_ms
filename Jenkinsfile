@@ -34,14 +34,6 @@ volumes: [
       }
     }
 
-    stage("Build Frontend") {
-        container("node") {
-            dir("front-node") {
-                sh "npm install"
-            }
-        }
-    }
-
     stage('Build Backend') {
       container('maven') {
         dir("back") {
@@ -55,11 +47,20 @@ volumes: [
           credentialsId: 'dockerhub',
           usernameVariable: 'DOCKER_HUB_USER',
           passwordVariable: 'DOCKER_HUB_PASSWORD']]) {
-          sh """
-            docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASSWORD}
-            docker build -t namespace/my-image:${gitCommit} .
-            docker push namespace/my-image:${gitCommit}
-            """
+          dir ("front-node") {
+            sh """
+                docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASSWORD}
+                docker build -t suportegm/frontend:latest .
+                docker push suportegm/frontend:latest
+                """
+          }
+          dir ("back") {
+            sh """
+                docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASSWORD}
+                docker build -t suportegm/backend:latest .
+                docker push suportegm/backend:latest
+                """
+          }
         }
       }
     }

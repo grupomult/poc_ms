@@ -74,5 +74,22 @@ volumes: [
         sh "helm list"
       }
     }
+
+    stage('Install Backend') {
+        container('kubectl') {
+            dir('back') {
+                sh 'kubectl apply -f kubernetes/*.yaml'
+            }
+        }
+    }
+
+    stage('Install Frontend') {
+        container('kubectl') {
+            dir('front-node') {
+                sh 'kubectl apply -f kubernetes/*.yaml'
+            }
+        }
+    }
+
   }
 }

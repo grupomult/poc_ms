@@ -1,0 +1,35 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.16.0 (0c01309)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: frontend
+  name: frontend
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: frontend
+    spec:
+      containers:
+      - image: suportegm/spring-petclinic-frontend
+        env:
+        - name: serverUrlApi
+          value: "http://backend:8080/"      
+        command:
+        - npm
+        - start
+        name: frontend
+        ports:
+        - containerPort: 8083
+        resources:
+          limits:
+            memory: "536870912"
+      restartPolicy: Always
+status: {}

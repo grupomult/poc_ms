@@ -1,0 +1,92 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-vagao-heading">Create or edit a Vagao</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!vagao.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="vagao.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_codigo">Codigo</label>
+                    <input type="text" class="form-control" name="codigo" id="field_codigo"
+                        [(ngModel)]="vagao.codigo" required/>
+                    <div [hidden]="!(editForm.controls.codigo?.dirty && editForm.controls.codigo?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codigo?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_descricao">Descricao</label>
+                    <input type="text" class="form-control" name="descricao" id="field_descricao"
+                        [(ngModel)]="vagao.descricao" required/>
+                    <div [hidden]="!(editForm.controls.descricao?.dirty && editForm.controls.descricao?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.descricao?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_altura">Altura</label>
+                    <input type="text" class="form-control" name="altura" id="field_altura"
+                        [(ngModel)]="vagao.altura" required/>
+                    <div [hidden]="!(editForm.controls.altura?.dirty && editForm.controls.altura?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.altura?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_comprimento">Comprimento</label>
+                    <input type="text" class="form-control" name="comprimento" id="field_comprimento"
+                        [(ngModel)]="vagao.comprimento" required/>
+                    <div [hidden]="!(editForm.controls.comprimento?.dirty && editForm.controls.comprimento?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.comprimento?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_largura">Largura</label>
+                    <input type="text" class="form-control" name="largura" id="field_largura"
+                        [(ngModel)]="vagao.largura" required/>
+                    <div [hidden]="!(editForm.controls.largura?.dirty && editForm.controls.largura?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.largura?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tipoVagao">Tipo Vagao</label>
+                    <select class="form-control" id="field_tipoVagao" name="tipoVagao" [(ngModel)]="vagao.tipoVagao"  required>
+                        <option *ngIf="!editForm.value.tipoVagao" [ngValue]="null" selected></option>
+                        <option [ngValue]="tipoVagaoOption.id === vagao.tipoVagao?.id ? vagao.tipoVagao : tipoVagaoOption" *ngFor="let tipoVagaoOption of tipovagaos; trackBy: trackTipoVagaoById">{{tipoVagaoOption.codigo}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.tipoVagao?.dirty && editForm.controls.tipoVagao?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.tipoVagao?.errors?.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

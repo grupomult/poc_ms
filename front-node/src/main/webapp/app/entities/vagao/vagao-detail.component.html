@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="vagao">
+            <h2><span>Vagao</span> {{vagao.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Codigo</span></dt>
+                <dd>
+                    <span>{{vagao.codigo}}</span>
+                </dd>
+                <dt><span>Descricao</span></dt>
+                <dd>
+                    <span>{{vagao.descricao}}</span>
+                </dd>
+                <dt><span>Altura</span></dt>
+                <dd>
+                    <span>{{vagao.altura}}</span>
+                </dd>
+                <dt><span>Comprimento</span></dt>
+                <dd>
+                    <span>{{vagao.comprimento}}</span>
+                </dd>
+                <dt><span>Largura</span></dt>
+                <dd>
+                    <span>{{vagao.largura}}</span>
+                </dd>
+                <dt><span>Tipo Vagao</span></dt>
+                <dd>
+                    <div *ngIf="vagao.tipoVagao">
+                        <a [routerLink]="['/tipo-vagao', vagao.tipoVagao?.id, 'view']">{{vagao.tipoVagao?.codigo}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/vagao', vagao.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

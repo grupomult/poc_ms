@@ -1,0 +1,68 @@
+<div>
+    <h2 id="page-heading">
+        <span>Vagões</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-vagao" [routerLink]="['/vagao/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Vagao
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="vagaos">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Codigo</span></th>
+            <th><span>Descricao</span></th>
+            <th><span>Altura</span></th>
+            <th><span>Comprimento</span></th>
+            <th><span>Largura</span></th>
+            <th><span>Tipo Vagao</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let vagao of vagaos ;trackBy: trackId">
+                <td><a [routerLink]="['/vagao', vagao.id, 'view' ]">{{vagao.id}}</a></td>
+                <td>{{vagao.codigo}}</td>
+                <td>{{vagao.descricao}}</td>
+                <td>{{vagao.altura}}</td>
+                <td>{{vagao.comprimento}}</td>
+                <td>{{vagao.largura}}</td>
+                <td>
+                    <div *ngIf="vagao.tipoVagao">
+                        <a [routerLink]="['../tipo-vagao', vagao.tipoVagao?.id, 'view' ]" >{{vagao.tipoVagao?.codigo}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/vagao', vagao.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/vagao', vagao.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'vagao/'+ vagao.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

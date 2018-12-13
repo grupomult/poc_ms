@@ -1,0 +1,32 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "br.com.rumo.back"
+    },
+    "jhipsterVersion": "5.7.0",
+    "applicationType": "microservice",
+    "baseName": "back",
+    "packageName": "br.com.rumo.back",
+    "packageFolder": "br/com/rumo/back",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "OTFjMjFkNTI0MzJhZThlMTc3ZjAwODBiMjI2OGQ0YmViYmIwMTU4ZGNkMTE2Yzk1MjYyMjBmYTliZTgzMjA4YzM2ODA1OTRmZWNiN2JhYTVkNWNmMzJhNTY2NDRmMDgxMGNhMzYxN2NiNjBhNTNkMTVhNWFlNThkNjU5MmIyMmU=",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}

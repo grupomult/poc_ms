@@ -21,6 +21,7 @@ spec:
       containers:
       - image: suportegm/backend:latest
         name: backend
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
         resources:

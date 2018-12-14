@@ -20,6 +20,7 @@ spec:
     spec:
       containers:
       - image: suportegm/frontend:latest
+        imagePullPolicy: Always
         env:
         - name: serverUrlApi
           value: "http://10.30.20.46:30080/"      

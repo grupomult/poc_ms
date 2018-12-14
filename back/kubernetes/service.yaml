@@ -9,10 +9,11 @@ metadata:
     io.kompose.service: backend
   name: backend
 spec:
-  type: ClusterIP
+  type: NodePort
   ports:
   - name: "8080"
     port: 8080
+    nodePort: 30080
     targetPort: 8080
   selector:
     io.kompose.service: backend

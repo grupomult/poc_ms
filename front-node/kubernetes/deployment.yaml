@@ -22,15 +22,16 @@ spec:
       - image: suportegm/frontend:latest
         env:
         - name: serverUrlApi
-          value: "http://backend:8080/"      
+          value: "http://10.30.20.46:30080/"      
         command:
         - npm
         - start
         name: frontend
         ports:
-        - containerPort: 8083
+        - containerPort: 9000
         resources:
-          limits:
-            memory: "536870912"
+          requests:
+            memory: "512M"
+            cpu: "1400m"  
       restartPolicy: Always
 status: {}

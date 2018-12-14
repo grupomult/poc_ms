@@ -93,5 +93,11 @@ volumes: [
         }
     }
 
+    stage('update app') {
+      container('kubectl') {
+        sh 'kubectl get pods -n default --no-headers | cut -d ' ' -f1 | xargs kubectl delete pod -n default'
+      }
+    }
+
   }
 }

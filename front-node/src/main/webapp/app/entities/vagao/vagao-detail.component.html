@@ -1,34 +1,34 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="vagao">
-            <h2><span>Vagao</span> {{vagao.id}}</h2>
+            <h2><span>Vagão</span> {{vagao.id}}</h2>
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
-                <dt><span>Codigo</span></dt>
+                <dt><span>Código</span></dt>
                 <dd>
                     <span>{{vagao.codigo}}</span>
                 </dd>
-                <dt><span>Descricao</span></dt>
+                <dt><span>Descrição</span></dt>
                 <dd>
                     <span>{{vagao.descricao}}</span>
                 </dd>
-                <dt><span>Altura</span></dt>
+                <dt><span>Altura (cm)</span></dt>
                 <dd>
                     <span>{{vagao.altura}}</span>
                 </dd>
-                <dt><span>Comprimento</span></dt>
+                <dt><span>Comprimento (cm)</span></dt>
                 <dd>
                     <span>{{vagao.comprimento}}</span>
                 </dd>
-                <dt><span>Largura</span></dt>
+                <dt><span>Largura (cm)</span></dt>
                 <dd>
                     <span>{{vagao.largura}}</span>
                 </dd>
-                <dt><span>Tipo Vagao</span></dt>
+                <dt><span>Tipo Vagão</span></dt>
                 <dd>
                     <div *ngIf="vagao.tipoVagao">
-                        <a [routerLink]="['/tipo-vagao', vagao.tipoVagao?.id, 'view']">{{vagao.tipoVagao?.codigo}}</a>
+                        <a [routerLink]="['/tipo-vagao', vagao.tipoVagao?.id, 'view']">{{vagao.tipoVagao?.descricao}}</a>
                     </div>
                 </dd>
             </dl>

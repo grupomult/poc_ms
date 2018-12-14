@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
-            <h2 id="jhi-tipo-vagao-heading">Create or edit a Tipo Vagao</h2>
+            <h2 id="jhi-tipo-vagao-heading">Create or edit a Tipo Vagão</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!tipoVagao.id">
@@ -10,7 +10,7 @@
                         [(ngModel)]="tipoVagao.id" readonly />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" for="field_codigo">Codigo</label>
+                    <label class="form-control-label" for="field_codigo">Código</label>
                     <input type="text" class="form-control" name="codigo" id="field_codigo"
                         [(ngModel)]="tipoVagao.codigo" required/>
                     <div [hidden]="!(editForm.controls.codigo?.dirty && editForm.controls.codigo?.invalid)">
@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" for="field_descricao">Descricao</label>
+                    <label class="form-control-label" for="field_descricao">Descrição</label>
                     <input type="text" class="form-control" name="descricao" id="field_descricao"
                         [(ngModel)]="tipoVagao.descricao" required/>
                     <div [hidden]="!(editForm.controls.descricao?.dirty && editForm.controls.descricao?.invalid)">

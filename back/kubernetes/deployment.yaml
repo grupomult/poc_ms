@@ -8,8 +8,10 @@ metadata:
   labels:
     io.kompose.service: backend
   name: backend
+spec:  
   replicas: 1
-  strategy: RollingUpdate
+  strategy: 
+    type: RollingUpdate
   template:
     metadata:
       creationTimestamp: null

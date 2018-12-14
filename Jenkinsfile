@@ -78,7 +78,8 @@ volumes: [
     stage('Install Backend') {
         container('kubectl') {
             dir('back') {
-                sh 'kubectl apply -f kubernetes/*.yaml'
+                sh 'kubectl apply -f kubernetes/deployment.yaml'
+                sh 'kubectl apply -f kubernetes/service.yaml'
             }
         }
     }
@@ -86,7 +87,8 @@ volumes: [
     stage('Install Frontend') {
         container('kubectl') {
             dir('front-node') {
-                sh 'kubectl apply -f kubernetes/*.yaml'
+                sh 'kubectl apply -f kubernetes/deployment.yaml'
+                sh 'kubectl apply -f kubernetes/service.yaml'
             }
         }
     }

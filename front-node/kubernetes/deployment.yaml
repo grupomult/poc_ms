@@ -10,7 +10,8 @@ metadata:
   name: frontend
 spec:
   replicas: 1
-  strategy: {}
+  strategy: 
+    type: RollingUpdate
   template:
     metadata:
       creationTimestamp: null
@@ -18,7 +19,7 @@ spec:
         io.kompose.service: frontend
     spec:
       containers:
-      - image: suportegm/spring-petclinic-frontend
+      - image: suportegm/frontend:latest
         env:
         - name: serverUrlApi
           value: "http://backend:8080/"      

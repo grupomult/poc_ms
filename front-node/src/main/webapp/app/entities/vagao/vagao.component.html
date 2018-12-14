@@ -4,7 +4,7 @@
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-vagao" [routerLink]="['/vagao/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span >
-            Create new Vagao
+            Create new Vagão
             </span>
         </button>
     </h2>
@@ -15,12 +15,12 @@
             <thead>
             <tr>
             <th><span>ID</span></th>
-            <th><span>Codigo</span></th>
-            <th><span>Descricao</span></th>
-            <th><span>Altura</span></th>
-            <th><span>Comprimento</span></th>
-            <th><span>Largura</span></th>
-            <th><span>Tipo Vagao</span></th>
+            <th><span>Código</span></th>
+            <th><span>Descrição</span></th>
+            <th><span>Altura (cm)</span></th>
+            <th><span>Comprimento (cm)</span></th>
+            <th><span>Largura (cm)</span></th>
+            <th><span>Tipo Vagão</span></th>
             <th></th>
             </tr>
             </thead>
@@ -34,7 +34,7 @@
                 <td>{{vagao.largura}}</td>
                 <td>
                     <div *ngIf="vagao.tipoVagao">
-                        <a [routerLink]="['../tipo-vagao', vagao.tipoVagao?.id, 'view' ]" >{{vagao.tipoVagao?.codigo}}</a>
+                        <a [routerLink]="['../tipo-vagao', vagao.tipoVagao?.id, 'view' ]" >{{vagao.tipoVagao?.descricao}}</a>
                     </div>
                 </td>
                 <td class="text-right">
